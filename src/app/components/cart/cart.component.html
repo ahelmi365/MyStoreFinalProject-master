@@ -1,21 +1,57 @@
-<!-- <p>cart works!</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="cart-container" *ngFor="let selectedPro of selectedProducts">
+      <div class="cart-item">
+        <img src="{{ selectedPro.url }}" alt="" />
+      </div>
+      <div class="cart-item-details">
+        <!-- <p>ID: {{ selectedPro.id }}</p> -->
+        <p>
+          <strong>{{ selectedPro.name }}</strong>
+        </p>
+        <p>{{ selectedPro.price | currency: "USD" }}</p>
+        <!-- <p>Amount: {{ selectedPro.amount }}</p> -->
+        <label for="amount"
+          >Amount:
+          <input
+          (change)="onChangeAmount($event)"
+            type="number"
+            name="amount"
+            id="amountCart-{{selectedPro.id}}"
+            [value]="selectedPro.amount"
+            style="width: 100px;"
+            min="1"
+            max="10"
+        /></label>
+        <br>
+        <button
+        (click)="removeCartItem($event)"
+        id="removeItemCart-{{selectedPro.id}}"
+        class="btn btn-danger btn-sm" style="width: 76px;">Remove</button>
+      </div>
 
-<div *ngFor="let selectedPro of selectedProducts" class="row">
-  <p>{{ selectedPro.id }}</p>
-  <p>{{ selectedPro.name }}</p>
-  <p>{{ selectedPro.price }}</p>
-  <p>{{ selectedPro.amount }}</p>
-  <hr />
-</div> -->
-
-<div class="cart-container" *ngFor="let selectedPro of selectedProducts">
-  <div class="cart-item">
-    <img src="{{ selectedPro.url }}" alt="" />
+    </div>
+    <hr />
+    <div style="text-align: center">
+      <strong>Total: {{ cartTotal.toFixed(2) | currency: "USD" }}</strong>
+    </div>
   </div>
-  <div class="cart-item-details">
-    <p>ID: {{ selectedPro.id }}</p>
-    <p>Name: {{ selectedPro.name }}</p>
-    <p>Price: {{ selectedPro.price | currency:'USD' }}</p>
-    <p>Amount: {{ selectedPro.amount }}</p>
-  </div>
+  <div class="col-md-6 form-margin">
+  <form class=" ">
+    <label for="full-name">Full name</label>
+    <br>
+    <input type="text" id="full-name" placeholder="(minimum 3 characters)">
+    <br>
+    <label for="Address">Address</label><br>
+    <input type="text" id="Address" placeholder="(minimum 3 characters)">
+    <br>
+    <label for="cc-number">Credit card number</label><br>
+    <input  type="text" id="cc-number" placeholder="(16-digit number)">
+    <br>
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
 </div>
+</div>
+

@@ -1,7 +1,7 @@
 <!-- <p>product-item-detail works!</p> -->
 <!-- <p>{{ itemId }}</p> -->
 
-<div *ngFor="let product of products">
+<div *ngFor="let product of product">
   <div *ngIf="product.id == itemId" class="detail-container">
     <img src="{{ product.url }}" alt="" />
     <div class="detail-item">
@@ -18,16 +18,18 @@
       <div>
         <select
           name="countProducts"
-          id="countProducts"
+          id="{{ product.id }}"
           class="form-control form-select"
           id="exampleFormControlSelect1"
+          [(ngModel)]="productItemAmount"
+          (ngModelChange)="updateAmount($event)"
         >
-        <option *ngFor="let op of [1,2,3,4,5,6,7,8,9,10]">{{op}}</option>
-
+          <option *ngFor="let op of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+            {{ op }}
+          </option>
         </select>
         <br />
-        <button
-          class="btn-width btn btn-primary">
+        <button (click)="onAddToCart($event)" id="btn-{{ product.id }}" class="btn-width btn btn-primary">
           Add to cart
         </button>
       </div>

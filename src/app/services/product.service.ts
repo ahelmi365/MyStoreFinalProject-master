@@ -19,5 +19,10 @@ export class ProductService {
     return this.http.get<Product[]>('assets/data/data.json');
 
   }
+  // getProductsById():Observable<Product[]>{
+
+  //   return this.http.get<Product[]>('assets/data/data.json');
+
+  // }
 
 }

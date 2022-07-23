@@ -1,0 +1,30 @@
+
+.pp-header{
+  background: #33b5e5;
+  text-align: center;
+
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+
+    padding: 20px 200px 20px 200px;
+}
+
+a{
+    color: #ffffff;
+    font-weight: bold;
+    /* margin: 0 20px 0 20px; */
+}
+
+.myStore-header{
+  background: #33b5e5;
+  color: #ffffff;
+}
+
+h2.mystore-title{
+  text-align: center !important;
+}

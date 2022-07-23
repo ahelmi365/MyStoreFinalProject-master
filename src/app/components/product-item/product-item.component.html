@@ -1,0 +1,32 @@
+<form class="product-list-form">
+  <div class="form-group product-container">
+    <a [routerLink]="['/productItemDetails', product.id]"
+      ><img class="product-image" src="{{ product.url }}" alt=""
+    /></a>
+    <p>
+      <strong>{{ product.name }}</strong>
+    </p>
+    <p>
+      <strong>${{ product.price }}</strong>
+    </p>
+    <!-- <app-add-to-cart></app-add-to-cart> -->
+
+    <div>
+      <select
+        name="countProducts"
+        id="{{ product.id }}"
+        class="form-control form-select"
+        id="exampleFormControlSelect1"
+        [(ngModel)]="productItemAmount"
+      >
+        <option *ngFor="let op of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+          {{ op }}
+        </option>
+      </select>
+      <br />
+      <button (click)="onAddToCart()" class="btn-width btn btn-primary">
+        Add to cart
+      </button>
+    </div>
+  </div>
+</form>

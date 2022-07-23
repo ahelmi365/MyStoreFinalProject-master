@@ -1,0 +1,21 @@
+<!-- <p>cart works!</p>
+
+<div *ngFor="let selectedPro of selectedProducts" class="row">
+  <p>{{ selectedPro.id }}</p>
+  <p>{{ selectedPro.name }}</p>
+  <p>{{ selectedPro.price }}</p>
+  <p>{{ selectedPro.amount }}</p>
+  <hr />
+</div> -->
+
+<div class="cart-container" *ngFor="let selectedPro of selectedProducts">
+  <div class="cart-item">
+    <img src="{{ selectedPro.url }}" alt="" />
+  </div>
+  <div class="cart-item-details">
+    <p>ID: {{ selectedPro.id }}</p>
+    <p>Name: {{ selectedPro.name }}</p>
+    <p>Price: {{ selectedPro.price | currency:'USD' }}</p>
+    <p>Amount: {{ selectedPro.amount }}</p>
+  </div>
+</div>

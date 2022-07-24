@@ -1,4 +1,10 @@
-<div class="row">
+<div style="text-align: center;"  class="row cart" *ngIf="cartTotal <= 0">
+  <h5 >The cart has no items, please go to Products List and add items!</h5>
+  <p style="font-size: 175px;">🛒</p>
+
+</div>
+
+<div class="row cart" *ngIf="cartTotal > 0">
   <div class="col-md-6">
     <div class="cart-container" *ngFor="let selectedPro of selectedProducts">
       <div class="cart-item">
@@ -14,44 +20,73 @@
         <label for="amount"
           >Amount:
           <input
-          (change)="onChangeAmount($event)"
+            (change)="onChangeAmount($event)"
             type="number"
             name="amount"
-            id="amountCart-{{selectedPro.id}}"
+            id="amountCart-{{ selectedPro.id }}"
             [value]="selectedPro.amount"
-            style="width: 100px;"
+            style="width: 100px"
             min="1"
             max="10"
         /></label>
-        <br>
+        <br />
         <button
-        (click)="removeCartItem($event)"
-        id="removeItemCart-{{selectedPro.id}}"
-        class="btn btn-danger btn-sm" style="width: 76px;">Remove</button>
+          (click)="removeCartItem($event)"
+          id="removeItemCart-{{ selectedPro.id }}"
+          class="btn btn-danger btn-sm"
+        >
+          Delete from the Cart
+        </button>
       </div>
-
     </div>
     <hr />
-    <div style="text-align: center">
+    <div class="cart-total">
       <strong>Total: {{ cartTotal.toFixed(2) | currency: "USD" }}</strong>
+      <hr />
     </div>
   </div>
-  <div class="col-md-6 form-margin">
-  <form class=" ">
-    <label for="full-name">Full name</label>
-    <br>
-    <input type="text" id="full-name" placeholder="(minimum 3 characters)">
-    <br>
-    <label for="Address">Address</label><br>
-    <input type="text" id="Address" placeholder="(minimum 3 characters)">
-    <br>
-    <label for="cc-number">Credit card number</label><br>
-    <input  type="text" id="cc-number" placeholder="(16-digit number)">
-    <br>
-    <button type="submit" class="btn btn-primary">
-      Submit
-    </button>
-  </form>
-</div>
-</div>
+  <div class="col-md-6 myCartForm form-margin">
+    <form
+      class="form-info"
+      [formGroup]="myForm"
+      (ngSubmit)="checkFormValidators($event)"
+    >
+      <label for="full-name">Full name</label><br />
+      <p id="fullNameError" class="p-error">
+        Please enter a valid full name (min 3 charachters)
+      </p>
+      <input
+        formControlName="fullName"
+        type="text"
+        id="full-name"
+        placeholder="(minimum 3 characters)"
+      />
+      <br />
 
+      <label for="Address">Address</label><br />
+      <p id="addressError" class="p-error">
+        Please enter a valid address (min 6 charachters)
+      </p>
+      <input
+        formControlName="address"
+        type="text"
+        id="Address"
+        placeholder="(minimum 6 characters)"
+      />
+      <br />
+
+      <label for="cc-number">Credit card number</label><br />
+      <p id="ccError" class="p-error">
+        Please enter a valid credit card number (16-digit number)
+      </p>
+      <input
+        formControlName="ccNumber"
+        type="text"
+        id="cc-number"
+        placeholder="(16-digit number)"
+      />
+      <br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

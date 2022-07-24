@@ -1,1 +1,11 @@
-<p>confirmation works!</p>
+<!-- <p>confirmation works!</p> -->
+<div class="row container confirmation-container">
+  <div class="col-12 confirmation-items">
+    <h1 class="confirmation-header"><strong>Success!</strong>🎉</h1> <span></span>
+    <p>Thank you, <strong>{{customerFullName}}</strong>!</p>
+    <p>Your <strong>{{cartTotal | currency:'USD'}}</strong> order is confirmed!</p>
+    <p>Please allow 1-3 business day(s) for shipping.</p>
+    <button class="btn btn-primary" routerLink="/">Back to product list</button>
+  </div>
+</div>
+

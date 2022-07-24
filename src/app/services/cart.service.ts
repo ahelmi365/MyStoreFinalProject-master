@@ -11,10 +11,17 @@ export class CartService {
   private cardDataList: SelectedProducts[] = [];
   // create BehaviorSubject Observable to update other components with new changes
   private cardDataListObs = new BehaviorSubject<SelectedProducts[]>([]);
-  grandTotal:number = 0;
+  grandTotal: number = 0;
+  cartGrandTotal: number = 0;
+  customerFullName: string = "";
+
   constructor(private http: HttpClient) { }
 
   getProductData() {
+    return this.cardDataListObs.asObservable();
+  }
+
+  getCustomertData() {
     return this.cardDataListObs.asObservable();
   }
 
@@ -22,15 +29,6 @@ export class CartService {
     this.cardDataList.push(...Product);
     this.cardDataListObs.next(Product);
   }
-
-  // addToCart(product: any) {
-  //   this.cardDataList.push(product);
-  //   this.cardDataListObs.next(this.cardDataList);
-  //   // this.getTotalAmount();
-
-  //   console.log(this.cardDataList);
-  //   // console.log(this.cardDataListObs);
-  // }
 
   addToCart(product: SelectedProducts) {
     // check if the item is already in the Cart
@@ -53,10 +51,9 @@ export class CartService {
   }
 
   getTotalAmount() {
-    this.grandTotal=0;
+    this.grandTotal = 0;
     this.cardDataList.map((prod: any) => {
       this.grandTotal += ((+prod.amount) * (+prod.price));
-      // console.log("this.grandTotal: "+ this.grandTotal)
     });
 
   }
@@ -71,8 +68,19 @@ export class CartService {
     this.getTotalAmount();
   }
 
-  removeAllCart() {
-    this.cardDataList = [];
-    this.cardDataListObs.next(this.cardDataList);
+  // removeAllCart() {
+  //   this.cardDataList = [];
+  //   this.cardDataListObs.next(this.cardDataList);
+  // }
+
+
+  confrimCustomerForm(custName: string, cartTotal:number) {
+    this.customerFullName = custName;
+    this.cartGrandTotal = cartTotal;
+    console.log(this.customerFullName);
+
   }
+
+
+
 }

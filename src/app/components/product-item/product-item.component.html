@@ -9,8 +9,6 @@
     <p>
       <strong>${{ product.price }}</strong>
     </p>
-    <!-- <app-add-to-cart></app-add-to-cart> -->
-
     <div>
       <select
         name="countProducts"
@@ -25,7 +23,11 @@
         </option>
       </select>
       <br />
-      <button (click)="onAddToCart($event)" id="btn-{{ product.id }}" class="btn-width btn btn-primary">
+      <button
+        (click)="onAddToCart($event)"
+        id="btn-{{ product.id }}"
+        class="btn-width btn btn-primary"
+      >
         Add to cart
       </button>
     </div>

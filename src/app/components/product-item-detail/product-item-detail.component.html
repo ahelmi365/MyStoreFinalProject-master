@@ -1,5 +1,3 @@
-<!-- <p>product-item-detail works!</p> -->
-<!-- <p>{{ itemId }}</p> -->
 
 <div *ngFor="let product of product">
   <div *ngIf="product.id == itemId" class="detail-container">
@@ -14,7 +12,6 @@
       <p>
         {{ product.description }}
       </p>
-      <!-- <app-add-to-cart></app-add-to-cart> -->
       <div>
         <select
           name="countProducts"

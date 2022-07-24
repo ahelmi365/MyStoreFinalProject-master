@@ -24,15 +24,12 @@ export class ProductItemComponent implements OnInit {
       price: 0,
       url: '',
       description: ''
-
     }
 
   }
 
-
   onAddToCart(event:any) {
     window.alert("Item added to the cart with amount: " + this.productItemAmount);
-    // const itemAmount = (<HTMLInputElement>document.getElementById((this.product.id).toString())).value;
     this.cartService.addToCart({
       id: this.product.id,
       name: this.product.name,
@@ -47,13 +44,11 @@ export class ProductItemComponent implements OnInit {
   }
 
   updateAmount(event:any){
-
-    console.log("Amout updated");
+    // console.log("Amount updated");
     const addButton = <HTMLInputElement>document.getElementById("btn-"+this.product.id)
     addButton.classList.remove("btn-success");
     addButton.innerHTML = "Add to cart";
   }
-
 
 
   ngOnInit(): void {

@@ -17,6 +17,10 @@ export class ProductItemComponent implements OnInit {
   selectedProducts: SelectedProducts[] = [];
   productItemAmount:number=1;
 
+  @Output() cartTotalAmountEvent = new EventEmitter<number>();
+  totalNumberOfItemsinTheCart:number=0;
+
+
   constructor(private cartService: CartService, private productService: ProductService, private selectedProductsService: SelectedProductsService) {
     this.product = {
       id: 0,
@@ -26,6 +30,10 @@ export class ProductItemComponent implements OnInit {
       description: ''
     }
 
+  }
+
+  increaseCartTotalAmount(value: number) {
+    this.cartTotalAmountEvent.emit(value);
   }
 
   onAddToCart(event:any) {
@@ -39,8 +47,10 @@ export class ProductItemComponent implements OnInit {
       amount: this.productItemAmount
     });
 
+
     event.target.classList.add("btn-success");
     event.target.innerHTML = "Added to cart";
+    this.totalNumberOfItemsinTheCart = this.cartService.numberOfItemsinTheCart;
   }
 
   updateAmount(event:any){

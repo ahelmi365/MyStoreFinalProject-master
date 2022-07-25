@@ -11,3 +11,9 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.total-num-cart {
+  font-size: larger;
+  color: blueviolet;
+  font-style: oblique;
+}

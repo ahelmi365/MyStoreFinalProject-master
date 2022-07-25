@@ -14,6 +14,7 @@ export class CartService {
   grandTotal: number = 0;
   cartGrandTotal: number = 0;
   customerFullName: string = "";
+  numberOfItemsinTheCart=0;
 
   constructor(private http: HttpClient) { }
 
@@ -35,7 +36,7 @@ export class CartService {
     const itemFound: boolean = this.cardDataList.some(
       (el: any) => el.id === product.id);
 
-    if (itemFound) { // if in the cart, update ethe amount only in the cardDataList array
+    if (itemFound) { // if in the cart, update the amount only in the cardDataList array
       console.log("Found old item")
       this.cardDataList.forEach((element: any) => {
         if (element.id == product.id) {
@@ -44,6 +45,7 @@ export class CartService {
       });
     } else { // if not in the cart, push the product to the cardDataList array
       this.cardDataList.push(product);
+      this.numberOfItemsinTheCart++;
     }
     this.cardDataListObs.next(this.cardDataList); // update the observale with the new array
     this.getTotalAmount();
@@ -62,6 +64,7 @@ export class CartService {
     this.cardDataList.map((prod: any, index: any) => {
       if (product.id == prod.id) {
         this.cardDataList.splice(index, 1);
+        this.numberOfItemsinTheCart--;
       }
     });
     this.cardDataListObs.next(this.cardDataList); // update the observale with the new array

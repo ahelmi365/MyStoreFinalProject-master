@@ -1,8 +1,17 @@
-
-<div class="product-container">
-  <app-product-item
-    class=""
-    *ngFor="let prod of products"
-    [product]="prod"
-  ></app-product-item>
+<div class="row sticky-top">
+  <div class="card   total-num-cart col-12 d-flex align-items-center justify-content-center">
+    The total number of products in the cart is: <strong>{{ productsTotalInCart }}</strong>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="product-container">
+      <app-product-item
+        class=""
+        *ngFor="let prod of products"
+        [product]="prod"
+        (cartTotalAmountEvent)="incrementNumberOfProductsinCart($event)"
+      ></app-product-item>
+    </div>
+  </div>
 </div>

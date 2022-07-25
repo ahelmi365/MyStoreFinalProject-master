@@ -24,7 +24,7 @@
       </select>
       <br />
       <button
-        (click)="onAddToCart($event)"
+        (click)="onAddToCart($event); increaseCartTotalAmount(totalNumberOfItemsinTheCart)"
         id="btn-{{ product.id }}"
         class="btn-width btn btn-primary"
       >

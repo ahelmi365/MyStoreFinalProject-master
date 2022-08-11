@@ -1,8 +1,8 @@
 <div class="myStore-header">
-  <!-- <h2 class="mystore-title">{{ myApptitle }}</h2> -->
-
   <div class="navigation">
     <a routerLink="/">Products List</a>
-    <a routerLink="/cart">Cart</a>
+    <a routerLink="/cart">Cart: <strong> {{ cartService.numberOfItemsinTheCart }}</strong></a>
   </div>
 </div>
+
+

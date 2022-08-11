@@ -1,4 +1,6 @@
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
   myApptitle = "MyStore"
-  constructor() { }
+  constructor(protected cartService: CartService) { }
 
   ngOnInit(): void {
   }

@@ -9,7 +9,10 @@
 .product-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  gap: 5%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* .total-num-cart {
@@ -20,21 +23,26 @@
   background-color:cornsilk;
 } */
 
-
 .total-num-cart {
   font-size: larger;
   color: blueviolet;
   font-style: oblique;
   border: 0.4px solid rgb(56, 56, 56);
-  background-color:cornsilk;
+  background-color: cornsilk;
   border-radius: 5px;
-  width: 100px;
-  float: right;
+  width: 50px;
+  /* float: right; */
   text-align: center;
   margin: 10px 10px 0 0;
   cursor: pointer;
 }
 
-.cart-image{
+.cart-image {
   width: 50px;
+}
+
+.fix-me {
+  position: fixed;
+  top: 75px;
+  right: 10px;
 }

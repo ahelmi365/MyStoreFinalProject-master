@@ -38,7 +38,7 @@ export class ProductItemDetailComponent implements OnInit, OnDestroy {
 
 
   onAddToCart(event: any) {
-    window.alert("Item added to the cart with amount: " + this.productItemAmount);
+    // window.alert("Item added to the cart with amount: " + this.productItemAmount);
     const product = this.product.find((p) => p.id == this.itemId);
     if (!product) {
       return;

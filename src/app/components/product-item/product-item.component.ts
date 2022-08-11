@@ -37,7 +37,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   onAddToCart(event:any) {
-    window.alert("Item added to the cart with amount: " + this.productItemAmount);
+    // window.alert("Item added to the cart with amount: " + this.productItemAmount);
     this.cartService.addToCart({
       id: this.product.id,
       name: this.product.name,

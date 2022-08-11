@@ -1,6 +1,11 @@
-<div class="row sticky-top">
-  <div class="card   total-num-cart col-12 d-flex align-items-center justify-content-center">
-    The total number of products in the cart is: <strong>{{ productsTotalInCart }}</strong>
+<div class="sticky-top">
+  <div class=" total-num-cart ">
+    <!-- <img class="cart-image" src="assets/images/cart.png" alt=""> -->
+    <!-- <i class="fas fa-shopping-cart"></i> -->
+    <i class="fa-solid fa-cart-shopping"></i>
+    <!-- <i class="fa fa-american-sign-language-interpreting fa-5x" aria-hidden="true"> </i> -->
+     <!-- <strong> {{ productsTotalInCart }}</strong> -->
+     <strong> {{ cartService.numberOfItemsinTheCart }}</strong>
   </div>
 </div>
 <div class="row">

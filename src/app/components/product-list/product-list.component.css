@@ -12,8 +12,29 @@
   flex-wrap: wrap;
 }
 
+/* .total-num-cart {
+  font-size: larger;
+  color: blueviolet;
+  font-style: oblique;
+  border-bottom: 0.4px solid rgb(56, 56, 56);
+  background-color:cornsilk;
+} */
+
+
 .total-num-cart {
   font-size: larger;
   color: blueviolet;
   font-style: oblique;
+  border: 0.4px solid rgb(56, 56, 56);
+  background-color:cornsilk;
+  border-radius: 5px;
+  width: 100px;
+  float: right;
+  text-align: center;
+  margin: 10px 10px 0 0;
+  cursor: pointer;
+}
+
+.cart-image{
+  width: 50px;
 }

@@ -1,0 +1,4 @@
+.nav-bar-container{
+  display: flex;
+  flex-direction: column;
+}

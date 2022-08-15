@@ -1,18 +1,8 @@
-
-<div class="row">
+<div class="row list-container">
   <div class="col-12">
-    <!-- <div class="fix-me">
-      <div class="total-num-cart">
-        <strong> {{ cartService.numberOfItemsinTheCart }}</strong>
-      </div>
-    </div> -->
     <div class="product-container">
-      <app-product-item
-        class=""
-        *ngFor="let prod of products"
-        [product]="prod"
-        (cartTotalAmountEvent)="incrementNumberOfProductsinCart($event)"
-      ></app-product-item>
+      <app-product-item class="" *ngFor="let prod of products" [product]="prod"
+        (cartTotalAmountEvent)="incrementNumberOfProductsinCart($event)"></app-product-item>
     </div>
   </div>
 </div>

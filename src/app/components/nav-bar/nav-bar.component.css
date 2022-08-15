@@ -6,20 +6,29 @@
 .navigation {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 10%;
-  padding: 0.3rem 0;
+  padding: 0.6rem 0;
+
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+
   z-index: 10;
   background: #33b5e5;
   width: 100%;
+  box-shadow: 0 0 25px 0 black;
+
+  font-size: 1.2rem;
+
 
 }
 
 a {
   color: #ffffff;
   font-weight: bold;
+  text-decoration: none;
   /* margin: 0 20px 0 20px; */
 }
 

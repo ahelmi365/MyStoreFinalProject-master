@@ -1,7 +1,7 @@
 <div class="row list-container">
   <div class="col-12">
     <div class="product-container">
-      <app-product-item class="" *ngFor="let prod of products" [product]="prod"
+      <app-product-item class="product-item-card" *ngFor="let prod of products" [product]="prod"
         (cartTotalAmountEvent)="incrementNumberOfProductsinCart($event)"></app-product-item>
     </div>
   </div>

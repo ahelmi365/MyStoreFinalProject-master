@@ -15,6 +15,11 @@
   margin: 0 auto;
 }
 
+.product-item-card{
+
+   flex-basis: 22%;
+}
+
 
 
 .cart-image {
